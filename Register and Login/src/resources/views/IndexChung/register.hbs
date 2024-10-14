@@ -1,0 +1,78 @@
+<form class="mt-4" id="form-register">
+    <div class="wrapper">
+        
+            <h1>ĐĂNG KÝ</h1>
+
+      <div class="input-box">
+                <input type="text" placeholder="Tên tài khoản" id="username" name="username" required>
+                <i class="fas fa-user"></i>
+            </div> 
+
+            <div class="input-box">
+                <input type="password" placeholder="Mật khẩu" id="password" name="password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="email" placeholder="Email" id="email" name="email" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="tel" placeholder="Số điện thoại" id="sdt" name="sdt" required>
+                <i class="fas fa-phone"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Ghi nhớ đăng nhập </label>
+                <a href="#">Quên mật khẩu</a>
+            </div>
+
+            <button type="submit" class="btn">Đăng nhập</button>
+
+            <div class="register-link">
+                <p>Bạn chưa có tài khoản? <a href="#">Tạo tài khoản</a></p>
+            </div>
+</form>
+        </form>
+
+        <script>
+             $(document).ready(function (){
+        $("#form-resgiter").submit(function(event){
+            event.prevenDefault();
+            var username = $("#username").val();
+            var passwork = $("#passwork").val();
+            var email = $("#email").val();
+            var sdt = $("#sdt").val();
+            if(!username || !passwork || !email || !sdt ){
+            alert ("Vui Lòng điền đầy đủ thông tin.");
+            return; 
+            }
+
+            $.ajax({
+                url:"/created",
+                method:"POST",
+                data:{
+                     var username:  $('#username').val(),
+                     var passwork: $('#passwork').val()
+                     var email:  $('#email').val(),
+                     var sdt: $('#sdt').val()
+                },
+                success: function(response){
+                    if(response.message == 'success'){
+                        window.location.href ='/login';
+                    }
+                    if(response.message == 'error'){
+                        window.location.href ='/register';
+                    }
+
+                }
+                error: function (){
+                     alert("Đã xảy ra lỗi trong quá trình đăng nhập ! ");
+                }
+            });
+            
+        });
+        });
+        </script>
+ 

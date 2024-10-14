@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <form id = 'form-login'>
+            <h1>ĐĂNG NHẬP</h1>
+
+<div class="input-box">
+                <input type="text" placeholder="Tên tài khoản" id="username" name="username" required>
+                <i class="fas fa-user"></i>
+            </div> 
+
+            <div class="input-box">
+                <input type="password" placeholder="Mật khẩu" id="password" name="password" required>
+                <i class="fas fa-lock"></i>
+            </div>
+             <div class="remember-forgot">
+                <label><input type="checkbox"> Ghi nhớ đăng nhập </label>
+                <a href="#">Quên mật khẩu</a>
+            </div>
+
+            <button type="submit" class="btn">Đăng nhập</button>
+
+            <div class="register-link">
+                <p>Bạn chưa có tài khoản? <a href="/register">Tạo tài khoản</a></p>
+            </div>
+        </form>
+
+        <script>
+            unction setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    $(document).ready(function (){
+        $("#form-login").submit(function(event){
+            event.prevenDefault();
+            var username = $("#username").val();
+            var passwork = $("#passwork").val();
+            if(!username || !passwork){
+            alert ("Vui Lòng điền đầy đủ thông tin.");
+            return; 
+            }
+
+            $.ajax({
+                url:"/logined",
+                method:"POST",
+                data:{
+                     var username:  $('#username').val(),
+                     var passwork: $('#passwork').val()
+                },
+                success: function(response){
+                    if(response.message == 'admin'){
+                        setCookie('token',response.token, 1 );
+                        window.location.href ='/news';
+
+                    }else if ( response.message == '/user'){
+                    setCookie('token',response.token, 1 );
+                        window.location.href ='/news';
+                    }else{
+                        alert(response.message);
+                    }
+
+                }
+                error: function (){
+                     alert("Đã xảy ra lỗi trong quá trình đăng nhập ! ");
+                }
+            });
+            
+        });
+        });
+        </script>
+    </div>
+</body>
+</html>

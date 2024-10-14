@@ -1,0 +1,426 @@
+
+body {
+   
+    padding: 0;
+    margin: 0;
+    width : 100%;
+    background: white;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background: black;
+    
+    justify-content: space-between;
+    padding-left: 3%;
+    height: 64px;
+    align-content: center;
+    line-height: 64px;
+    z-index: 100;
+}
+.logo {
+    width: 173px;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+.header.right {
+    width: 15%;
+  
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: #fff;
+}
+.header.right i {
+  
+    line-height: 60px;
+    width: 20%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+.fa-solid.fa-bag-shopping::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #606060;
+    right: 15%;
+    bottom: 30%;
+}
+nav {
+    display: flex;
+  
+   width:100%;
+
+  
+}
+nav > ul {
+    list-style: none;
+    display: flex;
+   
+    width: 100%;
+    justify-content: space-between;
+ 
+    height: 100%;
+    margin : 0;
+    padding: 0%;
+}
+nav > ul a:hover {
+    background: #A0A0A0;
+    color: #fff;
+}
+nav > ul a {
+    text-decoration: none;
+    color: #E0E0E0;
+    height: 100%;
+ 
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+nav > ul a li {
+   
+    margin: auto;
+    height: 100%;
+    line-height: 60px;
+}
+.flag {
+    width: 20px;
+    height: fit-content;
+    line-height: 60px;
+ 
+    cursor: pointer;
+}
+.flag-container {
+    width: 30%;
+    height: 100%;
+   
+    text-align: center;
+}
+
+.subnav {
+    position: absolute;
+  
+    color: #fff;
+    list-style: none;
+    background-color: black;
+    width: 15%;
+    
+    top: 70px;
+    left: 59.1%;
+    
+    text-align: left;
+    display: none;
+    z-index: 100;
+}
+.subnav.active {
+    display: block;
+}
+.subnav div {
+    border: 1px solid;
+    text-align: left;
+    padding-left: 10px;
+    position: relative;
+}
+.subnav div:hover {
+    background: #A0A0A0;
+}
+.subnav::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #606060;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    background: #A0A0A0;
+    padding: 0;
+    justify-content: space-around;
+ 
+}
+.slide_img {
+    position: absolute;
+    display: flex;
+
+    width: 10%;
+    justify-content: space-between;
+    bottom: 10px;
+  
+}
+.slide_img img {
+    width: 0px;
+    height: 0px;
+    border: 4px solid #A0A0A0;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+   
+    cursor: pointer;
+}
+.slide_img img.active, .slide_img img:hover {
+    border: 4px solid #606060;
+}
+#main_img {
+    width: 100%;
+}
+.btn{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(225, 224, 224, 0.2);
+    top: 50%;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.3);
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: rgba(224, 224, 224, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+.btn.left{
+    left: 50px;
+}
+.btn.right{
+    right: 50px;
+}
+
+#subSection{
+    width: 80%;
+    display: flex;
+   
+    justify-content: space-between;
+    margin: 60px 10%;
+}
+#subSection img{
+    width: 32%;
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.section{
+    width: 80%;
+    margin: 60px 10%;
+}
+.section h1{
+    text-align: center;
+    font-size: 2rem;
+    width: 100%
+}
+.category{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product {
+    position: relative;
+    width: 24%;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 0 5px #C0C0C0;
+    text-decoration: none;
+}
+.product:visited{
+    color: #000;
+}
+.product:hover{
+    box-shadow: 0 0 10px 5px #C0C0C0;
+}
+.corner_icon{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 100px;
+    height: fit-content;
+}
+.corner_icon.new{
+    width: 70px;
+    height: fit-content;
+}
+.corner_icon.leftover{
+    width: 60px;
+    height: fit-content;
+}
+.product_img{
+    margin-top: 50px;
+    width: 250px;  
+    height: auto; 
+    max-width: 100%;
+    flex: 1;
+    margin: 10px; 
+}
+.product_info{
+    text-align: left;
+    padding: 0 5%;
+}
+.product_info p{
+    color: #808080;
+    word-spacing: 5px;
+}
+.product_info h3{
+   color:#000
+}
+.price{
+    font-size: 1.1rem;
+    color: red;
+    font-weight: 600;
+}
+.discount{
+    text-decoration: line-through;
+}
+.section_end{
+    width: 100%;
+    text-align: center;
+}
+.section_end button{
+    width: 220px;
+    height: 40px;
+    border-radius: 10px;
+    color: red;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid red;
+    margin: 2%;
+    cursor: pointer;
+}
+.section_end button:hover{
+    color: #fff;
+    background-color: red;
+    border: none;
+}
+
+.receive{
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    background: #e8e8e8;
+}
+.receive p{
+    font-size: 1rem;
+}
+.receive_email{
+    position: relative;
+    display: flex;
+    background: #fff;
+    width: 520px;
+    margin: auto;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.receive_email input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 5%;
+}
+.receive_email button{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    background: Red;
+    color: #fff;
+}
+
+footer{
+    width: 100%;
+    height: 500px;
+    background-color:black;
+    padding-top: 5%;
+    margin: 0%;
+}
+footer > div{
+    width: 80%;
+    margin: 0 10% 1%;
+    z-index: 100;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.foot {
+    width: 18%;
+    line-height: 1.9rem;
+}
+.foot.first{
+    width: 32%;
+}
+.foot.first .logo{
+    width: 200px;
+}
+.foot h5{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 2% 0;
+    color: #fff;
+}
+.foot a{
+    text-decoration: none;
+    color: #808080;
+    font-size: 1rem;
+}
+.foot a:hover{
+    text-decoration: underline;
+}
+.foot p{
+    color: #808080;
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 1.7rem;
+    margin: 0;
+}
+.foot ul{
+    color: #808080;
+    list-style: none;
+    font-size: 1rem;
+    padding: 0 10%;
+    margin: 0;
+}
+.foot ul li{
+    line-height: 1.3rem;
+}
+.foot.last{
+    width: 26%;
+}
+#footer_end{
+    border-top: 1px solid;
+    color: #404040;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    padding-top: 2%;
+}
+#footer_end img{
+    width: 140px;
+    height: fit-content;
+}
+.foot h4{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 2% 0;
+    color: #fff;
+}
+.foot li{
+    margin-bottom: 10px;
+  
+}
